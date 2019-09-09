@@ -3,27 +3,55 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		84EBDAAA2326BE0000FACC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAA92326BE0000FACC78 /* AppDelegate.swift */; };
-		84EBDAAC2326BE0000FACC78 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAAB2326BE0000FACC78 /* ViewController.swift */; };
+		84EBDAAC2326BE0000FACC78 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAAB2326BE0000FACC78 /* DetailViewController.swift */; };
 		84EBDAAF2326BE0000FACC78 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EBDAAD2326BE0000FACC78 /* Main.storyboard */; };
 		84EBDAB22326BE0000FACC78 /* NytimesTest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAB02326BE0000FACC78 /* NytimesTest.xcdatamodeld */; };
 		84EBDAB42326BE0100FACC78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84EBDAB32326BE0100FACC78 /* Assets.xcassets */; };
 		84EBDAB72326BE0100FACC78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84EBDAB52326BE0100FACC78 /* LaunchScreen.storyboard */; };
+		84EBDABF2326C73700FACC78 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDABE2326C73700FACC78 /* BaseViewController.swift */; };
+		84EBDAC12326C77F00FACC78 /* WebManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAC02326C77F00FACC78 /* WebManager.swift */; };
+		84EBDAC62326CD0F00FACC78 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAC52326CD0F00FACC78 /* BaseCollectionViewCell.swift */; };
+		84EBDAC92326CD4C00FACC78 /* DataBaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAC82326CD4C00FACC78 /* DataBaseManager.swift */; };
+		84EBDACD2326CDF100FACC78 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDACC2326CDF100FACC78 /* AppConstants.swift */; };
+		84EBDACF2326CF7900FACC78 /* NSObject+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDACE2326CF7900FACC78 /* NSObject+Extensions.swift */; };
+		84EBDAD22326D09F00FACC78 /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAD12326D09F00FACC78 /* UICollectionView+Extensions.swift */; };
+		84EBDAD52326D14100FACC78 /* CellIdentifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAD42326D14100FACC78 /* CellIdentifying.swift */; };
+		84EBDAD72326D19D00FACC78 /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAD62326D19D00FACC78 /* UITableView+Extensions.swift */; };
+		84EBDAD92326D31F00FACC78 /* FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDAD82326D31F00FACC78 /* FavoriteViewController.swift */; };
+		84EBDADB2326D44D00FACC78 /* BusinessLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDADA2326D44D00FACC78 /* BusinessLayer.swift */; };
+		84EBDADE23270B4900FACC78 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EBDADD23270B4900FACC78 /* MenuViewController.swift */; };
+		D80407D4107ED74C2EC97B32 /* Pods_NytimesTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD44B79770C53D01AAB485A9 /* Pods_NytimesTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7F14B25B97401EDC6FC38F9B /* Pods-NytimesTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NytimesTest.debug.xcconfig"; path = "Target Support Files/Pods-NytimesTest/Pods-NytimesTest.debug.xcconfig"; sourceTree = "<group>"; };
 		84EBDAA62326BE0000FACC78 /* NytimesTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NytimesTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EBDAA92326BE0000FACC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		84EBDAAB2326BE0000FACC78 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		84EBDAAB2326BE0000FACC78 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		84EBDAAE2326BE0000FACC78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84EBDAB12326BE0000FACC78 /* NytimesTest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NytimesTest.xcdatamodel; sourceTree = "<group>"; };
 		84EBDAB32326BE0100FACC78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84EBDAB62326BE0100FACC78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84EBDAB82326BE0100FACC78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EBDABE2326C73700FACC78 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		84EBDAC02326C77F00FACC78 /* WebManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebManager.swift; path = ../WebManager.swift; sourceTree = "<group>"; };
+		84EBDAC52326CD0F00FACC78 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		84EBDAC82326CD4C00FACC78 /* DataBaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataBaseManager.swift; path = ../DataBaseManager.swift; sourceTree = "<group>"; };
+		84EBDACC2326CDF100FACC78 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		84EBDACE2326CF7900FACC78 /* NSObject+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extensions.swift"; sourceTree = "<group>"; };
+		84EBDAD12326D09F00FACC78 /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
+		84EBDAD42326D14100FACC78 /* CellIdentifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellIdentifying.swift; sourceTree = "<group>"; };
+		84EBDAD62326D19D00FACC78 /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		84EBDAD82326D31F00FACC78 /* FavoriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewController.swift; sourceTree = "<group>"; };
+		84EBDADA2326D44D00FACC78 /* BusinessLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BusinessLayer.swift; path = ../BusinessLayer.swift; sourceTree = "<group>"; };
+		84EBDADD23270B4900FACC78 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		DD44B79770C53D01AAB485A9 /* Pods_NytimesTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NytimesTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB000E4DB7C8695DB705E37A /* Pods-NytimesTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NytimesTest.release.xcconfig"; path = "Target Support Files/Pods-NytimesTest/Pods-NytimesTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +59,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D80407D4107ED74C2EC97B32 /* Pods_NytimesTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		161AA699D1BA6FA6C19D2CE6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7F14B25B97401EDC6FC38F9B /* Pods-NytimesTest.debug.xcconfig */,
+				FB000E4DB7C8695DB705E37A /* Pods-NytimesTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7257D7DABF7A6B97D87715E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD44B79770C53D01AAB485A9 /* Pods_NytimesTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		84EBDA9D2326BE0000FACC78 = {
 			isa = PBXGroup;
 			children = (
 				84EBDAA82326BE0000FACC78 /* NytimesTest */,
 				84EBDAA72326BE0000FACC78 /* Products */,
+				161AA699D1BA6FA6C19D2CE6 /* Pods */,
+				7257D7DABF7A6B97D87715E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,14 +105,74 @@
 			isa = PBXGroup;
 			children = (
 				84EBDAA92326BE0000FACC78 /* AppDelegate.swift */,
-				84EBDAAB2326BE0000FACC78 /* ViewController.swift */,
+				84EBDACC2326CDF100FACC78 /* AppConstants.swift */,
+				84EBDAC42326CCA300FACC78 /* ViewControllers */,
 				84EBDAAD2326BE0000FACC78 /* Main.storyboard */,
 				84EBDAB32326BE0100FACC78 /* Assets.xcassets */,
 				84EBDAB52326BE0100FACC78 /* LaunchScreen.storyboard */,
 				84EBDAB82326BE0100FACC78 /* Info.plist */,
-				84EBDAB02326BE0000FACC78 /* NytimesTest.xcdatamodeld */,
+				84EBDADC2327078200FACC78 /* Helper */,
+				84EBDACA2326CD7A00FACC78 /* Model */,
+				84EBDAD32326D11C00FACC78 /* Protocols */,
+				84EBDACB2326CDA200FACC78 /* Extensions */,
 			);
 			path = NytimesTest;
+			sourceTree = "<group>";
+		};
+		84EBDAC42326CCA300FACC78 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDABE2326C73700FACC78 /* BaseViewController.swift */,
+				84EBDADD23270B4900FACC78 /* MenuViewController.swift */,
+				84EBDAAB2326BE0000FACC78 /* DetailViewController.swift */,
+				84EBDAD82326D31F00FACC78 /* FavoriteViewController.swift */,
+				84EBDAC72326CD1800FACC78 /* Subviews */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		84EBDAC72326CD1800FACC78 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDAC52326CD0F00FACC78 /* BaseCollectionViewCell.swift */,
+			);
+			path = Subviews;
+			sourceTree = "<group>";
+		};
+		84EBDACA2326CD7A00FACC78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDAB02326BE0000FACC78 /* NytimesTest.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		84EBDACB2326CDA200FACC78 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDACE2326CF7900FACC78 /* NSObject+Extensions.swift */,
+				84EBDAD12326D09F00FACC78 /* UICollectionView+Extensions.swift */,
+				84EBDAD62326D19D00FACC78 /* UITableView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84EBDAD32326D11C00FACC78 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDAD42326D14100FACC78 /* CellIdentifying.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		84EBDADC2327078200FACC78 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				84EBDAC02326C77F00FACC78 /* WebManager.swift */,
+				84EBDADA2326D44D00FACC78 /* BusinessLayer.swift */,
+				84EBDAC82326CD4C00FACC78 /* DataBaseManager.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +182,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84EBDABB2326BE0100FACC78 /* Build configuration list for PBXNativeTarget "NytimesTest" */;
 			buildPhases = (
+				87D0CD5CACD8E22D2085F3AD /* [CP] Check Pods Manifest.lock */,
 				84EBDAA22326BE0000FACC78 /* Sources */,
 				84EBDAA32326BE0000FACC78 /* Frameworks */,
 				84EBDAA42326BE0000FACC78 /* Resources */,
+				6E779664B8348B2970AF432E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +243,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6E779664B8348B2970AF432E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NytimesTest/Pods-NytimesTest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NytimesTest/Pods-NytimesTest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NytimesTest/Pods-NytimesTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		87D0CD5CACD8E22D2085F3AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-NytimesTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		84EBDAA22326BE0000FACC78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84EBDAAC2326BE0000FACC78 /* ViewController.swift in Sources */,
+				84EBDACF2326CF7900FACC78 /* NSObject+Extensions.swift in Sources */,
+				84EBDADE23270B4900FACC78 /* MenuViewController.swift in Sources */,
+				84EBDAD52326D14100FACC78 /* CellIdentifying.swift in Sources */,
+				84EBDAC92326CD4C00FACC78 /* DataBaseManager.swift in Sources */,
+				84EBDAD72326D19D00FACC78 /* UITableView+Extensions.swift in Sources */,
+				84EBDAD22326D09F00FACC78 /* UICollectionView+Extensions.swift in Sources */,
+				84EBDACD2326CDF100FACC78 /* AppConstants.swift in Sources */,
+				84EBDAAC2326BE0000FACC78 /* DetailViewController.swift in Sources */,
+				84EBDADB2326D44D00FACC78 /* BusinessLayer.swift in Sources */,
+				84EBDAC62326CD0F00FACC78 /* BaseCollectionViewCell.swift in Sources */,
+				84EBDABF2326C73700FACC78 /* BaseViewController.swift in Sources */,
+				84EBDAD92326D31F00FACC78 /* FavoriteViewController.swift in Sources */,
 				84EBDAB22326BE0000FACC78 /* NytimesTest.xcdatamodeld in Sources */,
 				84EBDAAA2326BE0000FACC78 /* AppDelegate.swift in Sources */,
+				84EBDAC12326C77F00FACC78 /* WebManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +448,7 @@
 		};
 		84EBDABC2326BE0100FACC78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7F14B25B97401EDC6FC38F9B /* Pods-NytimesTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +467,7 @@
 		};
 		84EBDABD2326BE0100FACC78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB000E4DB7C8695DB705E37A /* Pods-NytimesTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
