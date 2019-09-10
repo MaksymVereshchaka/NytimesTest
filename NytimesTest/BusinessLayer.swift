@@ -13,6 +13,7 @@ class BusinessLayer: NSObject {
     
     let webManager = WebManager()
     let dateBase = DataBaseManager()
+    let router = NavigationRouter()
     
     private override init() {}
 }

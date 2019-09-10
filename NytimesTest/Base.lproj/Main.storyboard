@@ -19,53 +19,47 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="XNQ-Zd-1VN"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="gnG-uP-zo2"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h21-Sa-UbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-759" y="98"/>
         </scene>
-        <!--Menu View Controller-->
-        <scene sceneID="yq8-Wt-EDx">
-            <objects>
-                <viewController storyboardIdentifier="MenuViewController" id="t03-aw-BDN" customClass="MenuViewController" customModule="NytimesTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6EQ-xc-nyk">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="1FO-98-ntk"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ddi-TP-te1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="-584"/>
-        </scene>
         <!--The New York Times-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="BaseViewController" id="BYZ-38-t0r" customClass="BaseViewController" customModule="NytimesTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="NytimesTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oNb-GK-0EI">
+                            <tabBar contentMode="scaleToFill" itemPositioning="centered" translatesAutoresizingMaskIntoConstraints="NO" id="oNb-GK-0EI">
                                 <rect key="frame" x="0.0" y="618" width="375" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <tabBarItem title="Most emailed" id="Yff-jR-34N"/>
-                                    <tabBarItem tag="1" title="Most shared" id="OSc-rt-FD5"/>
-                                    <tabBarItem tag="2" title="Most viewed" id="v0T-xH-zLa"/>
+                                    <tabBarItem title="Most emailed" id="Yff-jR-34N">
+                                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="1" title="Most shared" id="OSc-rt-FD5">
+                                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="2" systemItem="mostViewed" id="v0T-xH-zLa">
+                                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                    </tabBarItem>
+                                    <tabBarItem tag="3" systemItem="favorites" id="daO-Tn-Y9O">
+                                        <color key="badgeColor" name="controlAccentColor" catalog="System" colorSpace="catalog"/>
+                                    </tabBarItem>
                                 </items>
                                 <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="49V-wy-1EQ"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="fLb-w9-vy1"/>
                                 </connections>
                             </tabBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n8a-Nx-ccp">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BaseTableViewCell" id="TW3-2X-M2v" customClass="BaseTableViewCell" customModule="NytimesTest" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="BaseTableViewCell" id="TW3-2X-M2v" customClass="MainTableViewCell" customModule="NytimesTest" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TW3-2X-M2v" id="xY2-JN-Mwt">
@@ -80,7 +74,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="oNb-GK-0EI" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Han-gu-oBt"/>
                             <constraint firstItem="n8a-Nx-ccp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YCV-jT-hwS"/>
@@ -92,37 +86,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="The New York Times" id="ryJ-1R-SqN">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="snt-pv-lOq">
-                            <connections>
-                                <action selector="didTapMenuButton:" destination="BYZ-38-t0r" id="Thg-wd-qq6"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="The New York Times" id="ryJ-1R-SqN"/>
                     <connections>
-                        <outlet property="navItem" destination="ryJ-1R-SqN" id="9ek-fx-Vpy"/>
-                        <outlet property="tabBar" destination="oNb-GK-0EI" id="0ro-UL-cJt"/>
+                        <outlet property="tabBar" destination="oNb-GK-0EI" id="i3q-65-iTZ"/>
                         <outlet property="tableView" destination="n8a-Nx-ccp" id="aJm-Sb-Tsv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="97.601199400299862"/>
-        </scene>
-        <!--Favorite View Controller-->
-        <scene sceneID="iGc-kI-FeS">
-            <objects>
-                <viewController storyboardIdentifier="FavoriteViewController" id="fqz-Xr-3cs" customClass="FavoriteViewController" customModule="NytimesTest" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="v4z-nf-eeo">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="pnM-2N-2MS"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cgn-Gf-E7S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="139" y="804"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qFF-09-yXy">
@@ -131,13 +103,13 @@
                     <view key="view" contentMode="scaleToFill" id="Smn-EX-1Pk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98431372549019602" green="1" blue="0.9137254901960784" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="u1T-jm-uBk"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFh-0Z-GUR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1249" y="98"/>
+            <point key="canvasLocation" x="1009" y="98"/>
         </scene>
     </scenes>
 </document>

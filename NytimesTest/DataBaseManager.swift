@@ -8,8 +8,23 @@
 
 import UIKit
 import CoreData
+import Sync
 
 class DataBaseManager: NSObject {
     
+    lazy var persistentContainer: NSPersistentContainer = {
+        let container = NSPersistentContainer(name: NSObject.nameOfApp)
+        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+            if let error = error as NSError? {
+                fatalError("Unresolved error \(error), \(error.userInfo)")
+            }
+        })
+        return container
+    }()
     
+    let dataStack = DataStack(modelName: NSObject.nameOfApp)
+    
+    func entityForName(entityName: String) -> NSEntityDescription {
+        return NSEntityDescription.entity(forEntityName: entityName, in: persistentContainer.viewContext)!
+    }
 }

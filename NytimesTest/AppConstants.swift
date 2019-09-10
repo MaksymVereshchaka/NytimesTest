@@ -10,5 +10,5 @@ import UIKit
 
 class AppConstants: NSObject {
     static let BaseURL = URL(string: "https://api.nytimes.com")!
-
+    static let MainAppColor = UIColor.colorFromHex(hex: "#FBFFE9")
 }

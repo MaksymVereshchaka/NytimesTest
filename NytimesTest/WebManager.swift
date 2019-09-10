@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import Sync
 
 class WebManager: NSObject {
     private enum Constants {
@@ -16,9 +17,9 @@ class WebManager: NSObject {
     }
     
     private enum PathURL {
-        static let Emailer = "emailed/7.json"
-        static let Shared = "shared/1/facebook.json"
-        static let Viewed = "viewed/7.json"
+        static let Emailer = "emailed/30.json"
+        static let Shared = "shared/30.json"
+        static let Viewed = "viewed/30.json"
     }
     
     private let baseUrl = {
@@ -26,35 +27,29 @@ class WebManager: NSObject {
     }()
     
     func getEmailed() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Emailer), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { (response) in
-            switch response.result {
-            case .success(_):
-                break
-            case .failure(_):
-                break
+        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Emailer), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+            guard let self = self else {
+                return
             }
+            self.proceedResponse(response: response, entityName: NSStringFromClass(EmailedArticle.self))
         }
     }
     
     func getShared() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Shared), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { (response) in
-            switch response.result {
-            case .success(_):
-                break
-            case .failure(_):
-                break
+        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Shared), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+            guard let self = self else {
+                return
             }
+            self.proceedResponse(response: response, entityName: NSStringFromClass(SharedArticle.self))
         }
     }
     
     func getViewed() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Viewed), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { (response) in
-            switch response.result {
-            case .success(_):
-                break
-            case .failure(_):
-                break
+        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Viewed), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+            guard let self = self else {
+                return
             }
+            self.proceedResponse(response: response, entityName: NSStringFromClass(SharedArticle.self))
         }
     }
     
@@ -62,8 +57,23 @@ class WebManager: NSObject {
         return NetworkReachabilityManager()!.isReachable
     }
     
+    private func proceedResponse(response: DataResponse<Any>, entityName: String) {
+        switch response.result {
+        case .success(let response):
+            if let json = response as? [String: Any], let status = json["status"] as? String, status == "OK", let results = json["results"] as? [[String: Any]] {
+                Sync.changes(results, inEntityNamed: entityName, dataStack: BusinessLayer.shared.dateBase.dataStack) { (error) in
+                    print(error?.localizedDescription ?? "Sync error")
+                }
+            } else {
+                // error
+            }
+        case .failure(let error):
+            print(error.localizedDescription)
+        }
+    }
+    
     private static func headersRequest() -> [String: String] {
-        return ["Content-Type": "application/json",
+        return [//"Content-Type": "application/json",
                 "api-key": Constants.ApiKey]
     }
 }

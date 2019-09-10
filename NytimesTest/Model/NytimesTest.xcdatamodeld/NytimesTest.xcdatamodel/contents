@@ -1,4 +1,161 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="18G87" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="EmailedArticle" representedClassName="EmailedArticle" syncable="YES" codeGenerationType="class">
+        <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adxKeywords" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="adx_Keywords"/>
+            </userInfo>
+        </attribute>
+        <attribute name="assetId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="byline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="column" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countType" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="count_type"/>
+            </userInfo>
+        </attribute>
+        <attribute name="emailCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="email_count"/>
+            </userInfo>
+        </attribute>
+        <attribute name="etaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="eta_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nytdsection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="published_date"/>
+            </userInfo>
+        </attribute>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subsection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedStr" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="updated"/>
+            </userInfo>
+        </attribute>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="emailedArticle" inverseEntity="Media" syncable="YES"/>
+        <userInfo>
+            <entry key="hyper.remoteKey" value="asset_id"/>
+        </userInfo>
+    </entity>
+    <entity name="Media" representedClassName="Media" syncable="YES" codeGenerationType="class">
+        <attribute name="approvedForSyndication" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="caption" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="copyright" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subtype" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="emailedArticle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EmailedArticle" inverseName="media" inverseEntity="EmailedArticle" syncable="YES"/>
+        <relationship name="mediaMetadata" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="MediaMetadata" inverseName="media" inverseEntity="MediaMetadata" syncable="YES"/>
+        <relationship name="sharedArticle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SharedArticle" inverseName="media" inverseEntity="SharedArticle" syncable="YES"/>
+        <relationship name="viewedArticle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ViewedArticle" inverseName="media" inverseEntity="ViewedArticle" syncable="YES"/>
+    </entity>
+    <entity name="MediaMetadata" representedClassName="MediaMetadata" syncable="YES" codeGenerationType="class">
+        <attribute name="format" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="height" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="width" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="mediaMetadata" inverseEntity="Media" syncable="YES"/>
+    </entity>
+    <entity name="SharedArticle" representedClassName="SharedArticle" syncable="YES" codeGenerationType="class">
+        <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adxKeywords" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="adx_keywords"/>
+            </userInfo>
+        </attribute>
+        <attribute name="assetId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="byline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="column" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="countType" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="count_type"/>
+            </userInfo>
+        </attribute>
+        <attribute name="etaId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="eta_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nytdsection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="published_date"/>
+            </userInfo>
+        </attribute>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="shareCount" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="share_count"/>
+            </userInfo>
+        </attribute>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="subsection" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="updatedStr" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="updated"/>
+            </userInfo>
+        </attribute>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="sharedArticle" inverseEntity="Media" syncable="YES"/>
+        <userInfo>
+            <entry key="hyper.remoteKey" value="asset_id"/>
+        </userInfo>
+    </entity>
+    <entity name="ViewedArticle" representedClassName="ViewedArticle" syncable="YES" codeGenerationType="class">
+        <attribute name="abstract" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="adxKeywords" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="adx_keywords"/>
+            </userInfo>
+        </attribute>
+        <attribute name="assetId" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="asset_id"/>
+            </userInfo>
+        </attribute>
+        <attribute name="byline" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="column" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="publishedDate" optional="YES" attributeType="String" syncable="YES">
+            <userInfo>
+                <entry key="hyper.remoteKey" value="published_date"/>
+            </userInfo>
+        </attribute>
+        <attribute name="section" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="source" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uri" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="views" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="media" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Media" inverseName="viewedArticle" inverseEntity="Media" syncable="YES"/>
+        <userInfo>
+            <entry key="hyper.remoteKey" value="asset_id"/>
+        </userInfo>
+    </entity>
+    <elements>
+        <element name="EmailedArticle" positionX="-307.2265625" positionY="149.71484375" width="128" height="358"/>
+        <element name="Media" positionX="-157.87109375" positionY="536.65234375" width="128" height="178"/>
+        <element name="MediaMetadata" positionX="-168.30078125" positionY="756.734375" width="128" height="118"/>
+        <element name="SharedArticle" positionX="-136.97265625" positionY="151.46484375" width="128" height="358"/>
+        <element name="ViewedArticle" positionX="35.64453125" positionY="154.83203125" width="128" height="283"/>
+    </elements>
 </model>

@@ -7,7 +7,7 @@ target 'NytimesTest' do
 
   pod 'Alamofire'
   pod 'SDWebImage'
-  pod 'Presentr'
+  pod 'Sync'
 
   # Pods for NytimesTest
 
