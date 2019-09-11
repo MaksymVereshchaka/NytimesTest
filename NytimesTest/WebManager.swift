@@ -22,34 +22,45 @@ class WebManager: NSObject {
         static let Viewed = "viewed/30.json"
     }
     
+    typealias responseCompletion = ((Bool?, NSError?) -> Void)?
+    
     private let baseUrl = {
         return AppConstants.BaseURL.appendingPathComponent("svc/mostpopular/v2/")
     }()
     
-    func getEmailed() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Emailer), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+    func getEmailed(completion: responseCompletion = nil) {
+        let path = baseUrl.appendingPathComponent(PathURL.Emailer)
+        Alamofire.request(WebManager.insertApiKey(in: path), method: .get, encoding: JSONEncoding.default).responseJSON { [weak self] (response) in
             guard let self = self else {
                 return
             }
-            self.proceedResponse(response: response, entityName: NSStringFromClass(EmailedArticle.self))
+            self.proceedResponse(response: response, entityName: NSStringFromClass(EmailedArticle.self)) { (status, error) in
+                completion?(status, error)
+            }
         }
     }
     
-    func getShared() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Shared), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+    func getShared(completion: responseCompletion = nil) {
+        let path = baseUrl.appendingPathComponent(PathURL.Shared)
+        Alamofire.request(WebManager.insertApiKey(in: path), method: .get, encoding: JSONEncoding.default).responseJSON { [weak self] (response) in
             guard let self = self else {
                 return
             }
-            self.proceedResponse(response: response, entityName: NSStringFromClass(SharedArticle.self))
+            self.proceedResponse(response: response, entityName: NSStringFromClass(SharedArticle.self)) { (status, error) in
+                completion?(status, error)
+            }
         }
     }
     
-    func getViewed() {
-        Alamofire.request(baseUrl.appendingPathComponent(PathURL.Viewed), method: .get, parameters: nil, encoding: JSONEncoding.default, headers: WebManager.headersRequest()).responseJSON { [weak self] (response) in
+    func getViewed(completion: responseCompletion = nil) {
+        let path = baseUrl.appendingPathComponent(PathURL.Viewed)
+        Alamofire.request(WebManager.insertApiKey(in: path), method: .get, encoding: JSONEncoding.default).responseJSON { [weak self] (response) in
             guard let self = self else {
                 return
             }
-            self.proceedResponse(response: response, entityName: NSStringFromClass(SharedArticle.self))
+            self.proceedResponse(response: response, entityName: NSStringFromClass(ViewedArticle.self)) { (status, error) in
+                completion?(status, error)
+            }
         }
     }
     
@@ -57,23 +68,41 @@ class WebManager: NSObject {
         return NetworkReachabilityManager()!.isReachable
     }
     
-    private func proceedResponse(response: DataResponse<Any>, entityName: String) {
+    private func proceedResponse(response: DataResponse<Any>, entityName: String, completion: responseCompletion = nil) {
+        var isSuccess: Bool?
+        var errorCompletion: NSError?
         switch response.result {
         case .success(let response):
-            if let json = response as? [String: Any], let status = json["status"] as? String, status == "OK", let results = json["results"] as? [[String: Any]] {
-                Sync.changes(results, inEntityNamed: entityName, dataStack: BusinessLayer.shared.dateBase.dataStack) { (error) in
-                    print(error?.localizedDescription ?? "Sync error")
+            if let json = response as? [String: Any], let status = json["status"] as? String {
+                if let results = json["results"] as? [[String: Any]], status == "OK" {
+                    results.forEach() {
+                        do {
+                            try Sync.insertOrUpdate($0, inEntityNamed: entityName, using: BusinessLayer.shared.dateBase.persistentContainer.viewContext)
+
+                        } catch {
+                            isSuccess = false
+                            errorCompletion = NSError.errorWithCode(errorCode: .Sync, message: error.localizedDescription)
+                            completion?(isSuccess, errorCompletion)
+                            return
+                        }
+                    }
+                    isSuccess = true
+                } else {
+                    isSuccess = false
+                    errorCompletion = NSError.errorWithCode(errorCode: .ApiKey, message: "Api-key is wrong")
                 }
             } else {
-                // error
+                isSuccess = false
+                errorCompletion = NSError.errorWithCode(errorCode: .Parse, message: "Response parse error")
             }
         case .failure(let error):
-            print(error.localizedDescription)
+            isSuccess = false
+            errorCompletion = NSError.errorWithCode(errorCode: .Server, message: error.localizedDescription)
         }
+        completion?(isSuccess, errorCompletion)
     }
     
-    private static func headersRequest() -> [String: String] {
-        return [//"Content-Type": "application/json",
-                "api-key": Constants.ApiKey]
+    private static func insertApiKey(in path: URL) -> URL {
+        return URL(string: path.absoluteString + "?api-key=" + Constants.ApiKey) ?? path
     }
 }

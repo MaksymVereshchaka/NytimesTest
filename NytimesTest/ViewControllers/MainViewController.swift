@@ -22,6 +22,7 @@ class MainViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateResultsController()
     }
     
     override func configureView() {
@@ -33,11 +34,23 @@ class MainViewController: BaseViewController {
     private func updateResultsController() {
         switch selectArticleType {
         case .Emailer:
-            BusinessLayer.shared.webManager.getEmailed()
+            BusinessLayer.shared.webManager.getEmailed { [weak self] (isSuccess, error) in
+                if let isSuccess = isSuccess, let error = error, !isSuccess {
+                    self?.proceedError(error: error)
+                }
+            }
         case .Shared:
-            BusinessLayer.shared.webManager.getShared()
+            BusinessLayer.shared.webManager.getShared() { [weak self] (isSuccess, error) in
+                if let isSuccess = isSuccess, let error = error, !isSuccess {
+                    self?.proceedError(error: error)
+                }
+            }
         case .Viewed:
-            BusinessLayer.shared.webManager.getViewed()
+            BusinessLayer.shared.webManager.getViewed() { [weak self] (isSuccess, error) in
+                if let isSuccess = isSuccess, let error = error, !isSuccess {
+                    self?.proceedError(error: error)
+                }
+            }
         default:
             break
         }

@@ -28,4 +28,7 @@ class BaseViewController: UIViewController {
         
     }
     
+    func proceedError(error: NSError) {
+        UIAlertController.showAlert(message: error.localizedDescription)
+    }
 }
