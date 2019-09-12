@@ -9,23 +9,20 @@
 import Foundation
 
 enum ArticleType: String {
-    case Emailer = "emailer"
+    case Emailed = "emailed"
     case Shared = "shared"
     case Viewed = "viewed"
-    case Favorited = "favorited"
     
     static func selectType(by index: Int) -> ArticleType {
         switch index {
         case 0:
-            return ArticleType.Emailer
+            return ArticleType.Emailed
         case 1:
             return ArticleType.Shared
         case 2:
             return ArticleType.Viewed
-        case 3:
-            return ArticleType.Favorited
         default:
-            return ArticleType.Emailer
+            return ArticleType.Emailed
         }
     }
 }

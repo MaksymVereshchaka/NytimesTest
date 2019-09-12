@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "NytimesTest/WebManager.swift"
-            timestampString = "589926296.5328079"
+            timestampString = "590001548.083468"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "58"
@@ -22,16 +22,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Pods/Sync/Source/Sync/NSManagedObject+Sync.swift"
-            timestampString = "589930725.742346"
+            filePath = "NytimesTest/ViewControllers/MainViewController.swift"
+            timestampString = "590025213.448483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "212"
-            endingLineNumber = "212"
-            landmarkName = "sync_toManyRelationship(_:dictionary:parent:parentRelationship:context:operations:shouldContinueBlock:objectJSONBlock:)"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "controller(_:didChange:at:for:newIndexPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

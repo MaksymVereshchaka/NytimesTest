@@ -37,10 +37,11 @@ class NavigationRouter: NSObject {
         return rootViewController as? UINavigationController
     }
     
-    func showDetailViewController(isFromStart: Bool) {
+    func showDetailViewController(articleData: Any) {
         guard let viewController = DetailViewController.build(storyboardId: UIStoryboard.Detail, inStoryboard: UIStoryboard.main) as? DetailViewController else {
             return
         }
+        viewController.entity = articleData
         currentNavigation()?.pushViewController(viewController, animated: true)
     }
 }
