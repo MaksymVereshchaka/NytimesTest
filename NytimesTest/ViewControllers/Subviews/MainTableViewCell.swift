@@ -41,6 +41,5 @@ class MainTableViewCell: UITableViewCell {
     
     @IBAction private func didTapFavoriteButton(_ sender: UIButton) {
         delegate?.mainTableViewCellDidTapFavorite(selected: !sender.isSelected, indexPathCell: indexPathCell ?? IndexPath())
-        sender.isSelected = !sender.isSelected
     }
 }

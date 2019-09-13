@@ -79,6 +79,7 @@ class MainViewController: BaseViewController {
                 if let isSuccess = isSuccess, let error = error, !isSuccess {
                     self.proceedError(error: error)
                 }
+                self.tableView.reloadData()
             }
         case .Shared:
             BusinessLayer.shared.webManager.getShared() { [weak self] (isSuccess, error) in
@@ -86,6 +87,7 @@ class MainViewController: BaseViewController {
                 if let isSuccess = isSuccess, let error = error, !isSuccess {
                     self.proceedError(error: error)
                 }
+                self.tableView.reloadData()
             }
         case .Viewed:
             BusinessLayer.shared.webManager.getViewed() { [weak self] (isSuccess, error) in
@@ -93,6 +95,7 @@ class MainViewController: BaseViewController {
                 if let isSuccess = isSuccess, let error = error, !isSuccess {
                     self.proceedError(error: error)
                 }
+                self.tableView.reloadData()
             }
         }
     }
@@ -146,6 +149,7 @@ extension MainViewController: MainTableViewCellDelegate {
         } else if let entity = resultsController.object(at: indexPathCell) as? ViewedArticle {
             entity.isFavorite = selected
         }
+        tableView.reloadRows(at: [indexPathCell], with: .fade)
         BusinessLayer.shared.dateBase.saveContext()
     }
 }
@@ -155,6 +159,8 @@ extension MainViewController: NSFetchedResultsControllerDelegate {
         guard let indexPath = indexPath else { return }
         if type == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if type == .update {
+            // TODO: crash after rebooting immediately 2 or more cells
         } else {
             tableView.reloadData()
         }
