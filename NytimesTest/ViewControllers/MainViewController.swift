@@ -66,6 +66,8 @@ class MainViewController: BaseViewController {
         tableView.setContentOffset(.zero, animated: true)
         if fromInternet {
             updateDataFromInternet(by: type)
+        } else {
+            tableView.reloadData()
         }
     }
     
@@ -98,7 +100,6 @@ class MainViewController: BaseViewController {
     @IBAction private func didTapFavoriteButton(_ sender: UIBarButtonItem) {
         showOnlyFavorite = !showOnlyFavorite
         updateResultsController(with: selectArticleType, onlyFavorite: showOnlyFavorite, fromInternet: false)
-        tableView.reloadData()
     }
 }
 
@@ -152,10 +153,9 @@ extension MainViewController: MainTableViewCellDelegate {
 extension MainViewController: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         guard let indexPath = indexPath else { return }
-        switch type {
-        case .delete:
+        if type == .delete {
             tableView.deleteRows(at: [indexPath], with: .fade)
-        default:
+        } else {
             tableView.reloadData()
         }
     }
